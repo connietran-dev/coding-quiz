@@ -28,22 +28,54 @@ startQuiz.addEventListener("click", function() {
 
 // Display first question
 
+
+
 function runFirstQuestion() {
 
-// Set the text content of trivia question and choices
-quizQuestion.textContent = "Commonly used data types DO NOT include:";
+  // Set the text content of trivia question and choices
+  quizQuestion.textContent = "Commonly used data types DO NOT include:";
 
-var quizChoices = document.createElement("ol");
+  var quizChoiceA = document.createElement("p");
+  quizChoiceA.textContent = "strings";
+  body.appendChild(quizChoiceA);
 
-quizChoices.innerHTML = "<li>strings</li><li>booleans</li><li>alerts</li><li>numbers</li>";
+  var quizChoiceB = document.createElement("p");
+  quizChoiceB.textContent = "booleans";
+  body.appendChild(quizChoiceB);
 
-body.appendChild(quizChoices);
+  var quizChoiceC = document.createElement("p");
+  quizChoiceC.textContent = "alert";
+  body.appendChild(quizChoiceC);
 
+  var quizChoiceD = document.createElement("p");
+  quizChoiceD.textContent = "numbers";
+  body.appendChild(quizChoiceD);
 
 };
 
 
 // runSecondQuestion() on click of li
+
+var quizChoices = document.querySelectorAll("p");
+
+
+quizChoices.addEventListener("click", function() {
+  console.log("clicked");
+
+})
+
+// var listEl = document.querySelector("ol");
+// var quizChoices = document.querySelectorAll("li");
+
+// listEl.addEventListener("click", function(event) {
+//   event.stopPropagation();
+//   if(event.target.matches("li")) {
+//     console.log("clicked");
+//   }
+//   else {
+//     console.log("UL");
+//   }
+// });
 
 
 
