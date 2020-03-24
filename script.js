@@ -1,12 +1,15 @@
-/*
-// Create default landing
+// When "Start Quiz" button is clicked, create the below HTML elements.
+// TODO: And use data-attributes to set default elements to blank so they no longer show
 
-    <h1>Coding Quiz Challenge</h1>
-    <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-    <button>Start Quiz</button>
+var startQuiz = document.querySelector("button");
 
-*/
+startQuiz.addEventListener("click", function() {
+  createElements();
+});
 
+
+
+function createElements () {
 
 // Set the body to a variable
 var body = document.body;
@@ -27,4 +30,4 @@ body.appendChild(mainDiv);
 mainDiv.appendChild(quizQuestion);
 mainDiv.appendChild(quizChoices);
 
-
+};
