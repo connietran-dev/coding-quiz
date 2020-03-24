@@ -9,6 +9,7 @@ img {
 
 li {
     border: 1px solid blue;
+    margin: 10px;
 }
 
 li:hover {
