@@ -53,6 +53,9 @@ function runFirstQuestion() {
   quizChoiceA.textContent = "strings";
   body.appendChild(quizChoiceA);
 
+  quizChoiceA.addEventListener("click", runSecondQuestion);
+
+
   var quizChoiceB = document.createElement("p");
   quizChoiceB.setAttribute("class", "choiceB");
   quizChoiceB.textContent = "booleans";
@@ -74,60 +77,6 @@ function runFirstQuestion() {
   body.appendChild(quizNext);
 
 };
-
-
-var quizChoiceA = document.querySelector(".choiceA");
-
-quizChoiceA.addEventListener("click", function(event) {
-  console.log("clicked");
-  // runSecondQuestion();
-});
-
-
-
-
-// var nextQuiz = document.querySelector("#next");
-
-// nextQuiz.addEventListener("click", function(event) {
-//   event.preventDefault();
-//   console.log("clicked");
-//   runSecondQuestion();
-// });
-
-
-// var quizNext = document.querySelector("#next");
-
-
-// quizNext.addEventListener("click", function() {
-//   console.log("clicked");
-//   runSecondQuestion();
-// });
-
-
-
-// // runSecondQuestion() on click of quiz choice
-
-// var quizChoices = document.querySelectorAll("p");
-
-
-// quizChoices.addEventListener("click", function() {
-//   console.log("clicked");
-
-// });
-
-// var listEl = document.querySelector("ol");
-// var quizChoices = document.querySelectorAll("li");
-
-// listEl.addEventListener("click", function(event) {
-//   event.stopPropagation();
-//   if(event.target.matches("li")) {
-//     console.log("clicked");
-//   }
-//   else {
-//     console.log("UL");
-//   }
-// });
-
 
 
 
