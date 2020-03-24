@@ -1,32 +1,28 @@
 var body = document.body;
 
-// Create mainDiv to center content
-var mainDiv = document.createElement("div");
-
 // Create elements for quiz
 var quizQuestion = document.createElement("h1");
-var quizChoices = document.createElement("div");
+var quizInstructions = document.createElement("p");
 var startQuiz = document.createElement("button");
 
 // Set default text upon first load
 quizQuestion.textContent = "Coding Quiz Challenge";
-quizChoices.innerHTML = "<p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>";
+quizInstructions.innerHTML = "Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!";
 startQuiz.textContent = "Start Quiz";
 
 // Append to document for display
-body.appendChild(mainDiv);
-
-mainDiv.appendChild(quizQuestion);
-mainDiv.appendChild(quizChoices);
-mainDiv.appendChild(startQuiz);
+body.appendChild(quizQuestion);
+body.appendChild(quizInstructions);
+body.appendChild(startQuiz);
 
 
-// When "Start Quiz" button is clicked, runFirstQuestion and hide button
+// When "Start Quiz" button is clicked, hide button and runFirstQuestion() 
 var startQuiz = document.querySelector("button");
 
 startQuiz.addEventListener("click", function() {
+  quizInstructions.setAttribute("style", "display: none;");
+  startQuiz.setAttribute("style", "display: none;");
   runFirstQuestion();
-  startQuiz.setAttribute("style", "visibility: hidden;")
 });
 
 
@@ -36,7 +32,13 @@ function runFirstQuestion() {
 
 // Set the text content of trivia question and choices
 quizQuestion.textContent = "Commonly used data types DO NOT include:";
+
+var quizChoices = document.createElement("ol");
+
 quizChoices.innerHTML = "<li>strings</li><li>booleans</li><li>alerts</li><li>numbers</li>";
+
+body.appendChild(quizChoices);
+
 
 };
 
@@ -50,6 +52,7 @@ function runSecondQuestion() {
 
 // Set the text content of trivia question and choices
 quizQuestion.textContent = "The condition in an if / else statement is enclosed within _________";
+
 quizChoices.innerHTML = "<li>quotes</li><li>curly brackets</li><li>parentheses</li><li>square brackets</li>";
 
 };
