@@ -4,12 +4,12 @@
 var startQuiz = document.querySelector("button");
 
 startQuiz.addEventListener("click", function() {
-  createElements();
+  runFirstQuestion();
 });
 
 
 
-function createElements () {
+function runFirstQuestion() {
 
 // Set the body to a variable
 var body = document.body;
@@ -22,8 +22,8 @@ var quizQuestion = document.createElement("div");
 var quizChoices = document.createElement("div");
 
 // Set the text content of trivia question and choices
-quizQuestion.textContent = "This is the trivia question";
-quizChoices.textContent = "These are the choices";
+quizQuestion.textContent = "Commonly used data types DO NOT include:";
+quizChoices.innerHTML = "<li>1. strings</li><li>2. booleans</li><li>3. alerts</li><li>4. numbers</li>";
 
 // Append elements to document for display
 body.appendChild(mainDiv);
