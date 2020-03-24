@@ -6,3 +6,11 @@ div {
 img {
     background-color: blue;
 }
+
+li {
+    border: 1px solid blue;
+}
+
+li:hover {
+    background-color: purple;
+}
