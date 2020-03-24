@@ -8,6 +8,15 @@ padding: 20px 0;
 height: 30px;
 }
 
+button {
+    background-color: purple;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+
 
 body {
     max-width: 700px;
@@ -28,6 +37,13 @@ img {
 
 p {
     border: 1px solid green;
+
+    padding: 5px 5px;
+    margin: 0;
+}
+
+p:hover {
+    background-color: purple;
 }
 
 li {
@@ -36,5 +52,5 @@ li {
 }
 
 li:hover {
-    background-color: purple;
+    background-color: orange;
 }

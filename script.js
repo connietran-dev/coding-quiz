@@ -51,18 +51,34 @@ function runFirstQuestion() {
   quizChoiceD.textContent = "numbers";
   body.appendChild(quizChoiceD);
 
+  var quizNext = document.createElement("button");
+  quizNext.setAttribute("id", "next");
+  quizNext.textContent = "Next";
+  body.appendChild(quizNext);
+
 };
 
 
-// runSecondQuestion() on click of li
 
-var quizChoices = document.querySelectorAll("p");
+var quizNext = document.getElementsById("#next");
 
 
-quizChoices.addEventListener("click", function() {
+quizNext.addEventListener("click", function() {
   console.log("clicked");
+  runSecondQuestion();
+});
 
-})
+
+
+// // runSecondQuestion() on click of li
+
+// var quizChoices = document.querySelectorAll("p");
+
+
+// quizChoices.addEventListener("click", function() {
+//   console.log("clicked");
+
+// });
 
 // var listEl = document.querySelector("ol");
 // var quizChoices = document.querySelectorAll("li");
