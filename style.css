@@ -26,9 +26,28 @@ body {
 }
 
 
+[type='radio'] {
+    display: none; 
+}
+
+.choice {
+    border: 1px solid green;
+    margin: 10px;
+}
+
+.choice:hover {
+    background-color: purple;
+}
+
+
+
+/*Testing */
+
+
 div {
     background-color: red;
     border: 1px solid black;
+    margin: 0;
 }
 
 img {
