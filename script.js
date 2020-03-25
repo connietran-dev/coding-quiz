@@ -62,7 +62,7 @@ function runFirstQuestion() {
   // Answer choice B
   quizChoiceB = document.createElement("p");
   quizChoiceB.setAttribute("class", "choiceB");
-   body.appendChild(quizChoiceB);
+  body.appendChild(quizChoiceB);
 
   quizChoiceB.textContent = "booleans";
   quizChoiceB.addEventListener("click", function() {
@@ -94,6 +94,8 @@ function runFirstQuestion() {
     displayWrong();
   });
 };
+
+
 
 
 
@@ -135,7 +137,7 @@ function runSecondQuestion() {
   });
 
 
-  // Create divs for result from last question
+  // Create divs for result from first question
 
   lineBreak = document.createElement("hr");
   body.appendChild(lineBreak);
@@ -183,14 +185,45 @@ function runThirdQuestion() {
    displayCorrect();
   });
 
-
-  // Create divs for result from last question
-
-  body.appendChild(choiceResult);
+};
 
 
-}
 
+function runFourthQuestion() {
+
+  quizQuestion.textContent = "String values must be enclosed within _________ when being assigned to variables";
+
+  // Set text answer choices
+  quizChoiceA.textContent = "commas";
+  quizChoiceA.addEventListener("click", function() {
+    // runFourthQuestion();
+    displayWrong();
+  });
+
+
+  quizChoiceB.textContent = "curly brackets";
+  quizChoiceB.addEventListener("click", function() {
+    // runFourthQuestion();
+    displayWrong();
+  });
+
+
+  quizChoiceC.textContent = "quotes";
+  quizChoiceC.addEventListener("click", function() {
+    // runFourthQuestion();
+    displayCorrect();
+  });
+
+
+  quizChoiceD.textContent = "parentheses";
+  quizChoiceD.addEventListener("click", function() {
+  //  runFourthQuestion();
+   displayCorrect();
+  });
+
+
+
+};
 
 
 
