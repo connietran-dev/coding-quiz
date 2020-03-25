@@ -40,11 +40,12 @@ var quizChoiceD;
 
 function runFirstQuestion() {
 
-  // Set the text content of trivia question and choices
+  // Set the text content of trivia question
   quizQuestion.textContent = "Commonly used data types DO NOT include:";
 
 
   // Create HTML elements for answer choices
+  // On click, run second question and display result
 
   // Answer choice A
   quizChoiceA = document.createElement("p");
@@ -52,7 +53,10 @@ function runFirstQuestion() {
   body.appendChild(quizChoiceA);
 
   quizChoiceA.textContent = "strings";
-  quizChoiceA.addEventListener("click", runSecondQuestion);
+  quizChoiceA.addEventListener("click", function() {
+    runSecondQuestion();
+    displayWrong();
+  });
 
 
   // Answer choice B
@@ -61,7 +65,10 @@ function runFirstQuestion() {
    body.appendChild(quizChoiceB);
 
   quizChoiceB.textContent = "booleans";
-  quizChoiceB.addEventListener("click", runSecondQuestion);
+  quizChoiceB.addEventListener("click", function() {
+    runSecondQuestion();
+    displayWrong();
+  });
 
 
   // Answer choice C
@@ -69,8 +76,11 @@ function runFirstQuestion() {
   quizChoiceC.setAttribute("class", "choiceC");
   body.appendChild(quizChoiceC);
 
-  quizChoiceC.textContent = "alert";
-  quizChoiceC.addEventListener("click", runSecondQuestion);
+  quizChoiceC.textContent = "alerts";
+  quizChoiceC.addEventListener("click", function() {
+    runSecondQuestion();
+    displayCorrect();
+  });
 
 
   // Answer choice D
@@ -79,19 +89,10 @@ function runFirstQuestion() {
   body.appendChild(quizChoiceD);
 
   quizChoiceD.textContent = "numbers";
-  quizChoiceD.addEventListener("click", runSecondQuestion);
-
-};
-
-
-
-function checkFirstQuestion() {
-  if (3>7) { 
-    return "Right!"
-  } 
-  else { 
-    return "Wrong!" 
-  };
+  quizChoiceD.addEventListener("click", function() {
+    runSecondQuestion();
+    displayWrong();
+  });
 };
 
 
@@ -122,15 +123,26 @@ function runSecondQuestion() {
   quizChoiceD.addEventListener("click", runSecondQuestion);
 
 
-  // Show result from first question
+  // Create divs for result from first question
 
   lineBreak = document.createElement("hr");
   body.appendChild(lineBreak);
 
   choiceResult = document.createElement("div");
   choiceResult.setAttribute("class", "result");
-
-  choiceResult.textContent = checkFirstQuestion();
   body.appendChild(choiceResult);
 
 };
+
+
+
+// FUNCTIONS FOR DISPLAYING CORRECT OR WRONG
+
+
+function displayCorrect() {
+  choiceResult.textContent = "Correct!";
+}
+
+function displayWrong() {
+  choiceResult.textContent = "Wrong!";
+}
