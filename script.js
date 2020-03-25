@@ -28,8 +28,7 @@ startQuiz.addEventListener("click", function() {
 
 
 
-// Display first question
-
+// DISPLAY FIRST QUESTION
 
 var quizChoiceA;
 var quizChoiceB;
@@ -42,49 +41,62 @@ function runFirstQuestion() {
   // Set the text content of trivia question and choices
   quizQuestion.textContent = "Commonly used data types DO NOT include:";
 
-  // var quizChoices = document.createElement("form");
-  // body.appendChild(quizChoices);
-
-  // quizChoices.innerHTML = '<div class="choice"><input type="radio" id="strings" name="question1" value="string"><label for="strings">strings</label></div><br>  <div class="choice"><input type="radio" id="booleans" name="question1" value="booleans"><label for="booleans">booleans</label></div><br><div class="choice"><input type="radio" id="alerts" name="question1" value="alerts"><label for="alerts">alerts</label></div><br><div class="choice"><input type="radio" id="numbers" name="question1" value="numbers"><label for="numbers">numbers</label></div><br><button>Next</button>';
-
-
-  var quizChoiceA = document.createElement("p");
+  quizChoiceA = document.createElement("p");
   quizChoiceA.setAttribute("class", "choiceA");
   quizChoiceA.textContent = "strings";
   body.appendChild(quizChoiceA);
 
-  quizChoiceA.addEventListener("click", runSecondQuestion);
+  quizChoiceA.addEventListener("click", function() {
+    
+    runSecondQuestion();
+    
+  });
 
 
-  var quizChoiceB = document.createElement("p");
+  quizChoiceB = document.createElement("p");
   quizChoiceB.setAttribute("class", "choiceB");
   quizChoiceB.textContent = "booleans";
   body.appendChild(quizChoiceB);
 
-  var quizChoiceC = document.createElement("p");
+  quizChoiceB.addEventListener("click", runSecondQuestion);
+
+  quizChoiceC = document.createElement("p");
   quizChoiceC.setAttribute("class", "choiceC");
   quizChoiceC.textContent = "alert";
   body.appendChild(quizChoiceC);
+
+  quizChoiceC.addEventListener("click", runSecondQuestion);
 
   var quizChoiceD = document.createElement("p");
   quizChoiceD.setAttribute("class", "choiceD");
   quizChoiceD.textContent = "numbers";
   body.appendChild(quizChoiceD);
 
-  var quizNext = document.createElement("button");
-  quizNext.setAttribute("id", "next");
-  quizNext.textContent = "Next";
-  body.appendChild(quizNext);
+  quizChoiceD.addEventListener("click", runSecondQuestion);
 
 };
 
 
+
+// DISPLAY SECOND QUESTION
 
 function runSecondQuestion() {
 
 // Set the text content of trivia question and choices
 quizQuestion.textContent = "The condition in an if / else statement is enclosed within _________";
 
-// quizChoices.innerHTML = "<li>quotes</li><li>curly brackets</li><li>parentheses</li><li>square brackets</li>";
+  quizChoiceA.textContent = "quotes";
+  quizChoiceA.addEventListener("click", runSecondQuestion);
+
+
+  quizChoiceB.textContent = "curly brackets";
+  quizChoiceB.addEventListener("click", runSecondQuestion);
+
+
+  quizChoiceC.textContent = "parentheses";
+  quizChoiceC.addEventListener("click", runSecondQuestion);
+
+  quizChoiceD.textContent = "square brackets";
+  quizChoiceC.addEventListener("click", runSecondQuestion);
 
 };
