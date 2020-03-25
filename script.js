@@ -43,33 +43,42 @@ function runFirstQuestion() {
   // Set the text content of trivia question and choices
   quizQuestion.textContent = "Commonly used data types DO NOT include:";
 
+
+  // Create HTML elements for answer choices
+
+  // Answer choice A
   quizChoiceA = document.createElement("p");
   quizChoiceA.setAttribute("class", "choiceA");
-  quizChoiceA.textContent = "strings";
   body.appendChild(quizChoiceA);
 
+  quizChoiceA.textContent = "strings";
   quizChoiceA.addEventListener("click", runSecondQuestion);
 
 
+  // Answer choice B
   quizChoiceB = document.createElement("p");
   quizChoiceB.setAttribute("class", "choiceB");
-  quizChoiceB.textContent = "booleans";
-  body.appendChild(quizChoiceB);
+   body.appendChild(quizChoiceB);
 
+  quizChoiceB.textContent = "booleans";
   quizChoiceB.addEventListener("click", runSecondQuestion);
 
+
+  // Answer choice C
   quizChoiceC = document.createElement("p");
   quizChoiceC.setAttribute("class", "choiceC");
-  quizChoiceC.textContent = "alert";
   body.appendChild(quizChoiceC);
 
+  quizChoiceC.textContent = "alert";
   quizChoiceC.addEventListener("click", runSecondQuestion);
 
+
+  // Answer choice D
   quizChoiceD = document.createElement("p");
   quizChoiceD.setAttribute("class", "choiceD");
-  quizChoiceD.textContent = "numbers";
   body.appendChild(quizChoiceD);
 
+  quizChoiceD.textContent = "numbers";
   quizChoiceD.addEventListener("click", runSecondQuestion);
 
 };
@@ -92,9 +101,11 @@ function checkFirstQuestion() {
 
 function runSecondQuestion() {
 
-// Set the text content of trivia question and choices
-quizQuestion.textContent = "The condition in an if / else statement is enclosed within _________";
+  // Set the text content of trivia question and choices
+  quizQuestion.textContent = "The condition in an if / else statement is enclosed within _________";
 
+
+  // Set text answer choices
   quizChoiceA.textContent = "quotes";
   quizChoiceA.addEventListener("click", runSecondQuestion);
 
@@ -110,10 +121,14 @@ quizQuestion.textContent = "The condition in an if / else statement is enclosed 
   quizChoiceD.textContent = "square brackets";
   quizChoiceD.addEventListener("click", runSecondQuestion);
 
+
+  // Show result from first question
+
   lineBreak = document.createElement("hr");
   body.appendChild(lineBreak);
 
   choiceResult = document.createElement("div");
+  choiceResult.setAttribute("class", "result");
 
   choiceResult.textContent = checkFirstQuestion();
   body.appendChild(choiceResult);
