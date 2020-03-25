@@ -108,22 +108,34 @@ function runSecondQuestion() {
 
   // Set text answer choices
   quizChoiceA.textContent = "quotes";
-  quizChoiceA.addEventListener("click", runSecondQuestion);
+  quizChoiceA.addEventListener("click", function() {
+    runThirdQuestion();
+    displayWrong();
+  });
 
 
   quizChoiceB.textContent = "curly brackets";
-  quizChoiceB.addEventListener("click", runSecondQuestion);
+  quizChoiceB.addEventListener("click", function() {
+    runThirdQuestion();
+    displayWrong();
+  });
 
 
   quizChoiceC.textContent = "parentheses";
-  quizChoiceC.addEventListener("click", runSecondQuestion);
+  quizChoiceC.addEventListener("click", function() {
+    runThirdQuestion();
+    displayWrong();
+  });
 
 
   quizChoiceD.textContent = "square brackets";
-  quizChoiceD.addEventListener("click", runSecondQuestion);
+  quizChoiceD.addEventListener("click", function() {
+   runThirdQuestion();
+   displayCorrect();
+  });
 
 
-  // Create divs for result from first question
+  // Create divs for result from last question
 
   lineBreak = document.createElement("hr");
   body.appendChild(lineBreak);
@@ -133,6 +145,56 @@ function runSecondQuestion() {
   body.appendChild(choiceResult);
 
 };
+
+
+
+// THIRD QUESTION
+
+
+function runThirdQuestion() {
+
+  quizQuestion.textContent = "Arrays in Javascript can be used to store _________";
+
+  // Set text answer choices
+  quizChoiceA.textContent = "numbers and strings";
+  quizChoiceA.addEventListener("click", function() {
+    runFourthQuestion();
+    displayWrong();
+  });
+
+
+  quizChoiceB.textContent = "other arrays";
+  quizChoiceB.addEventListener("click", function() {
+    runFourthQuestion();
+    displayWrong();
+  });
+
+
+  quizChoiceC.textContent = "booleans";
+  quizChoiceC.addEventListener("click", function() {
+    runFourthQuestion();
+    displayWrong();
+  });
+
+
+  quizChoiceD.textContent = "all of the above";
+  quizChoiceD.addEventListener("click", function() {
+   runFourthQuestion();
+   displayCorrect();
+  });
+
+
+  // Create divs for result from last question
+
+  body.appendChild(choiceResult);
+
+
+}
+
+
+
+
+
 
 
 
