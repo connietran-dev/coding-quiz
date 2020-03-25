@@ -28,6 +28,8 @@ startQuiz.addEventListener("click", function() {
 
 
 
+
+
 // DISPLAY FIRST QUESTION
 
 var quizChoiceA;
@@ -46,11 +48,7 @@ function runFirstQuestion() {
   quizChoiceA.textContent = "strings";
   body.appendChild(quizChoiceA);
 
-  quizChoiceA.addEventListener("click", function() {
-    
-    runSecondQuestion();
-    
-  });
+  quizChoiceA.addEventListener("click", runSecondQuestion);
 
 
   quizChoiceB = document.createElement("p");
@@ -67,7 +65,7 @@ function runFirstQuestion() {
 
   quizChoiceC.addEventListener("click", runSecondQuestion);
 
-  var quizChoiceD = document.createElement("p");
+  quizChoiceD = document.createElement("p");
   quizChoiceD.setAttribute("class", "choiceD");
   quizChoiceD.textContent = "numbers";
   body.appendChild(quizChoiceD);
@@ -75,6 +73,18 @@ function runFirstQuestion() {
   quizChoiceD.addEventListener("click", runSecondQuestion);
 
 };
+
+
+
+function checkFirstQuestion() {
+  if (3>7) { 
+    return "Right!"
+  } 
+  else { 
+    return "Wrong!" 
+  };
+};
+
 
 
 
@@ -96,7 +106,16 @@ quizQuestion.textContent = "The condition in an if / else statement is enclosed 
   quizChoiceC.textContent = "parentheses";
   quizChoiceC.addEventListener("click", runSecondQuestion);
 
+
   quizChoiceD.textContent = "square brackets";
-  quizChoiceC.addEventListener("click", runSecondQuestion);
+  quizChoiceD.addEventListener("click", runSecondQuestion);
+
+  lineBreak = document.createElement("hr");
+  body.appendChild(lineBreak);
+
+  choiceResult = document.createElement("div");
+
+  choiceResult.textContent = checkFirstQuestion();
+  body.appendChild(choiceResult);
 
 };
