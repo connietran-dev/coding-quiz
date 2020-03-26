@@ -39,21 +39,18 @@ startQuiz.addEventListener("click", function() {
 function displayCorrect() {
 
   // Add to score
-  score = score + 5;
   console.log("Current score: " + score);
 
   // Create divs for result from first question
 
-  var lastElement = body.lastElementChild;
-
   lineBreak = document.createElement("hr");
-  lastElement.appendChild(lineBreak);
+  body.appendChild(lineBreak);
 
   choiceResult = document.createElement("div");
   choiceResult.setAttribute("class", "result");
 
   choiceResult.textContent = "Correct!";
-  lastElement.appendChild(choiceResult);
+  body.appendChild(choiceResult);
 
   setTimeout(function() {
 
@@ -68,16 +65,16 @@ function displayCorrect() {
 
 function displayWrong() {
 
-  var lastElement = body.lastElementChild;
+  console.log("Current score: " + score);
 
   lineBreak = document.createElement("hr");
-  lastElement.appendChild(lineBreak);
+  body.appendChild(lineBreak);
 
   choiceResult = document.createElement("div");
   choiceResult.setAttribute("class", "result");
 
   choiceResult.textContent = "Wrong!";
-  lastElement.appendChild(choiceResult);
+  body.appendChild(choiceResult);
 
   setTimeout(function() {
 
@@ -118,6 +115,7 @@ function runFirstQuestion() {
     quizChoice1B.remove();
     quizChoice1C.remove();
     quizChoice1D.remove();
+    score = score - 3;
     runSecondQuestion();
     displayWrong();
   });
@@ -133,6 +131,7 @@ function runFirstQuestion() {
     quizChoice1B.remove();
     quizChoice1C.remove();
     quizChoice1D.remove();
+    score = score - 3;
     runSecondQuestion();
     displayWrong();
   });
@@ -148,6 +147,7 @@ function runFirstQuestion() {
     quizChoice1B.remove();
     quizChoice1C.remove();
     quizChoice1D.remove();
+    score = score +10;
     runSecondQuestion();
     displayCorrect();
   });
@@ -163,6 +163,7 @@ function runFirstQuestion() {
     quizChoice1B.remove();
     quizChoice1C.remove();
     quizChoice1D.remove();
+    score = score - 3;
     runSecondQuestion();
     displayWrong();
   });
@@ -191,6 +192,7 @@ function runSecondQuestion() {
     quizChoice2B.remove();
     quizChoice2C.remove();
     quizChoice2D.remove();
+    score = score - 3;
     runThirdQuestion();
     displayWrong();
   });
@@ -205,6 +207,7 @@ function runSecondQuestion() {
     quizChoice2B.remove();
     quizChoice2C.remove();
     quizChoice2D.remove();
+    score = score - 3;
     runThirdQuestion();
     displayWrong();
   });
@@ -219,6 +222,7 @@ function runSecondQuestion() {
     quizChoice2B.remove();
     quizChoice2C.remove();
     quizChoice2D.remove();
+    score = score + 10;
     runThirdQuestion();
     displayCorrect();
   });
@@ -233,6 +237,7 @@ function runSecondQuestion() {
     quizChoice2B.remove();
     quizChoice2C.remove();
     quizChoice2D.remove();
+    score = score - 3;
     runThirdQuestion();
    displayWrong();
   });
@@ -259,6 +264,7 @@ function runThirdQuestion() {
     quizChoice3B.remove();
     quizChoice3C.remove();
     quizChoice3D.remove();
+    score = score - 3;
     runFourthQuestion();
     displayWrong();
   });
@@ -273,6 +279,7 @@ function runThirdQuestion() {
     quizChoice3B.remove();
     quizChoice3C.remove();
     quizChoice3D.remove();
+    score = score - 3;
     runFourthQuestion();
     displayWrong();
   });
@@ -287,6 +294,7 @@ function runThirdQuestion() {
     quizChoice3B.remove();
     quizChoice3C.remove();
     quizChoice3D.remove();
+    score = score - 3;
     runFourthQuestion();
     displayWrong();
   });
@@ -301,6 +309,7 @@ function runThirdQuestion() {
     quizChoice3B.remove();
     quizChoice3C.remove();
     quizChoice3D.remove();
+    score = score + 10;
    runFourthQuestion();
    displayCorrect();
   });
@@ -324,6 +333,7 @@ function runFourthQuestion() {
     quizChoice4B.remove();
     quizChoice4C.remove();
     quizChoice4D.remove();
+    score = score - 3;
     runFifthQuestion();
     displayWrong();
   });
@@ -338,6 +348,7 @@ function runFourthQuestion() {
     quizChoice4B.remove();
     quizChoice4C.remove();
     quizChoice4D.remove();
+    score = score - 3;
     runFifthQuestion();
     displayWrong();
   });
@@ -352,6 +363,7 @@ function runFourthQuestion() {
     quizChoice4B.remove();
     quizChoice4C.remove();
     quizChoice4D.remove();
+    score = score + 10;
     runFifthQuestion();
     displayCorrect();
   });
@@ -366,6 +378,7 @@ function runFourthQuestion() {
     quizChoice4B.remove();
     quizChoice4C.remove();
     quizChoice4D.remove();
+    score = score - 3;
     runFifthQuestion();
    displayWrong();
   });
@@ -391,6 +404,7 @@ function runFifthQuestion() {
     quizChoice5B.remove();
     quizChoice5C.remove();
     quizChoice5D.remove();
+    score = score - 3;
     enterInitials();
     displayWrong();
   });
@@ -405,6 +419,7 @@ function runFifthQuestion() {
     quizChoice5B.remove();
     quizChoice5C.remove();
     quizChoice5D.remove();
+    score = score - 3;
     enterInitials();
     displayWrong();
   });
@@ -419,6 +434,7 @@ function runFifthQuestion() {
     quizChoice5B.remove();
     quizChoice5C.remove();
     quizChoice5D.remove();
+    score = score - 3;
     enterInitials();
     displayWrong();
   });
@@ -433,8 +449,9 @@ function runFifthQuestion() {
     quizChoice5B.remove();
     quizChoice5C.remove();
     quizChoice5D.remove();
+    score = score + 10;
     enterInitials();
-    displayWrong();
+    displayCorrect();
   });
 
 };
@@ -444,23 +461,28 @@ function runFifthQuestion() {
 
 function enterInitials() {
 
+  quizQuestion.textContent = "All done!";
+
   var finalScore = document.createElement("p");
   finalScore.textContent = "Your final score is " + score;
   body.appendChild(finalScore);
-  console.log(score);
+  console.log("Final score is: " + score);
 
-
-  quizQuestion.textContent = "All done!";
 
   var initialText = document.createElement("p");
-  body.appendChild(initialText);
-
+  initialText.setAttribute("class", "initials");
   initialText.textContent = "Enter initials:";
+  body.appendChild(initialText);
 
 
   var inputInitials = document.createElement("input");
   inputInitials.setAttribute("type", "text");
   body.appendChild(inputInitials);
+
+
+  var initialsBtn = document.createElement("button");
+  initialsBtn.textContent = "Submit";
+  body.appendChild(initialsBtn);
 
 
 };
