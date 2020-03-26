@@ -136,7 +136,7 @@ function runSecondQuestion() {
    displayCorrect();
   });
 
-
+  // debugger;
   // Create divs for result from first question
 
   lineBreak = document.createElement("hr");
@@ -154,6 +154,8 @@ function runSecondQuestion() {
 
 
 function runThirdQuestion() {
+
+  // debugger;
 
   quizQuestion.textContent = "Arrays in Javascript can be used to store _________";
 
@@ -236,8 +238,26 @@ function runFourthQuestion() {
 
 function displayCorrect() {
   choiceResult.textContent = "Correct!";
+
+  setTimeout(function() {
+
+    choiceResult.setAttribute("style", "display: none;");
+    lineBreak.setAttribute("style", "display: none;");
+
+  },
+  1000);
+
 }
 
 function displayWrong() {
   choiceResult.textContent = "Wrong!";
+
+  setTimeout(function() {
+
+    choiceResult.setAttribute("style", "display: none;");
+    lineBreak.setAttribute("style", "display: none;");
+
+  },
+  1000);
+
 }
