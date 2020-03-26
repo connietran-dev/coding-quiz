@@ -1,5 +1,7 @@
 var body = document.body;
 
+var score = 0;
+
 // Create elements for quiz
 var quizQuestion = document.createElement("h1");
 var quizInstructions = document.createElement("p");
@@ -36,16 +38,22 @@ startQuiz.addEventListener("click", function() {
 
 function displayCorrect() {
 
+  // Add to score
+  score = score + 5;
+  console.log("Current score: " + score);
+
   // Create divs for result from first question
 
+  var lastElement = body.lastElementChild;
+
   lineBreak = document.createElement("hr");
-  body.appendChild(lineBreak);
+  lastElement.appendChild(lineBreak);
 
   choiceResult = document.createElement("div");
   choiceResult.setAttribute("class", "result");
 
   choiceResult.textContent = "Correct!";
-  body.appendChild(choiceResult);
+  lastElement.appendChild(choiceResult);
 
   setTimeout(function() {
 
@@ -60,14 +68,16 @@ function displayCorrect() {
 
 function displayWrong() {
 
+  var lastElement = body.lastElementChild;
+
   lineBreak = document.createElement("hr");
-  body.appendChild(lineBreak);
+  lastElement.appendChild(lineBreak);
 
   choiceResult = document.createElement("div");
   choiceResult.setAttribute("class", "result");
 
   choiceResult.textContent = "Wrong!";
-  body.appendChild(choiceResult);
+  lastElement.appendChild(choiceResult);
 
   setTimeout(function() {
 
@@ -367,7 +377,7 @@ function runFourthQuestion() {
 
 
 function runFifthQuestion() {
-debugger;
+  
   quizQuestion.textContent = "A very useful tool used during development and debugging for printing content to the debugger is:";
 
   
@@ -397,7 +407,6 @@ debugger;
     quizChoice5D.remove();
     enterInitials();
     displayWrong();
-    
   });
 
 
@@ -412,7 +421,6 @@ debugger;
     quizChoice5D.remove();
     enterInitials();
     displayWrong();
-
   });
 
 
@@ -426,8 +434,7 @@ debugger;
     quizChoice5C.remove();
     quizChoice5D.remove();
     enterInitials();
-    displayCorrect();
-
+    displayWrong();
   });
 
 };
@@ -437,28 +444,23 @@ debugger;
 
 function enterInitials() {
 
+  var finalScore = document.createElement("p");
+  finalScore.textContent = "Your final score is " + score;
+  body.appendChild(finalScore);
+  console.log(score);
+
 
   quizQuestion.textContent = "All done!";
 
-  var finalScore = document.createElement("p");
-  finalScore.textContent = "Your final score is ______";
-  body.appendChild(finalScore);
-
-
-  var initialText = document.createElement("label");
-  initialText.setAttribute("for", "initials");
-  // initialText.textContent("Enter initials:");
+  var initialText = document.createElement("p");
   body.appendChild(initialText);
+
+  initialText.textContent = "Enter initials:";
 
 
   var inputInitials = document.createElement("input");
   inputInitials.setAttribute("type", "text");
   body.appendChild(inputInitials);
-
-
-  // <label for="lname">Last name:</label><br>
-  //   <input type="text" id="lname" name="lname" value="Doe"><br><br>
-
 
 
 };
