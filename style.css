@@ -8,6 +8,7 @@ padding: 20px 0;
 height: 30px;
 }
 
+
 button {
     background-color: purple;
     color: white;
@@ -15,6 +16,7 @@ button {
     border: none;
     padding: 5px 10px;
     margin: 10px 0;
+    font-size: 12px;
 }
 
 
@@ -26,37 +28,24 @@ body {
 }
 
 
-[type='radio'] {
-    display: none; 
+/*Testing */
+
+p {
+    padding: 5px 5px;
+    margin: 0;
+    font-size: 16px;
+    border-radius: 3px;
+
 }
 
-.choice {
-    border: 1px solid green;
-    margin: 10px;
-}
-
-.choice:hover {
+p:hover {
     background-color: purple;
+    color: white;
 }
+
 
 .result {
     font-size: 18px;
     font-style: italic;
     color: #999999;
-}
-
-
-
-/*Testing */
-
-
-p {
-    border: 1px solid green;
-
-    padding: 5px 5px;
-    margin: 0;
-}
-
-p:hover {
-    background-color: purple;
 }

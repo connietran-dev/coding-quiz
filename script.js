@@ -20,9 +20,8 @@ body.appendChild(startQuiz);
 var startQuiz = document.querySelector("button");
 
 startQuiz.addEventListener("click", function() {
-  quizInstructions.setAttribute("style", "display: none;");
-  startQuiz.setAttribute("style", "display: none;");
-  console.log("Start quiz");
+  quizInstructions.remove();
+  startQuiz.remove();
   runFirstQuestion();
 });
 
@@ -30,12 +29,64 @@ startQuiz.addEventListener("click", function() {
 
 
 
-// DISPLAY FIRST QUESTION
 
-var quizChoiceA;
-var quizChoiceB;
-var quizChoiceC;
-var quizChoiceD;
+// FUNCTIONS FOR DISPLAYING CORRECT OR WRONG
+
+// TODO: Modify code for how results are injected and displayed.
+
+function displayCorrect() {
+
+  // Create divs for result from first question
+
+  lineBreak = document.createElement("hr");
+  body.appendChild(lineBreak);
+
+  choiceResult = document.createElement("div");
+  choiceResult.setAttribute("class", "result");
+
+  choiceResult.textContent = "Correct!";
+  body.appendChild(choiceResult);
+
+  setTimeout(function() {
+
+    choiceResult.remove();
+    lineBreak.remove();
+
+  },
+
+  600);
+
+};
+
+function displayWrong() {
+
+  lineBreak = document.createElement("hr");
+  body.appendChild(lineBreak);
+
+  choiceResult = document.createElement("div");
+  choiceResult.setAttribute("class", "result");
+
+  choiceResult.textContent = "Wrong!";
+  body.appendChild(choiceResult);
+
+  setTimeout(function() {
+
+    choiceResult.remove();
+    lineBreak.remove();
+
+  },
+  
+  600);
+
+};
+
+
+
+
+
+
+
+// DISPLAY FIRST QUESTION
 
 
 function runFirstQuestion() {
@@ -48,48 +99,60 @@ function runFirstQuestion() {
   // On click, run second question and display result
 
   // Answer choice A
-  quizChoiceA = document.createElement("p");
-  quizChoiceA.setAttribute("class", "choiceA");
-  body.appendChild(quizChoiceA);
+  var quizChoice1A = document.createElement("p");
+  body.appendChild(quizChoice1A);
 
-  quizChoiceA.textContent = "strings";
-  quizChoiceA.addEventListener("click", function() {
+  quizChoice1A.textContent = "strings";
+  quizChoice1A.addEventListener("click", function() {
+    quizChoice1A.remove();
+    quizChoice1B.remove();
+    quizChoice1C.remove();
+    quizChoice1D.remove();
     runSecondQuestion();
     displayWrong();
   });
 
 
   // Answer choice B
-  quizChoiceB = document.createElement("p");
-  quizChoiceB.setAttribute("class", "choiceB");
-  body.appendChild(quizChoiceB);
+  var quizChoice1B = document.createElement("p");
+  body.appendChild(quizChoice1B);
 
-  quizChoiceB.textContent = "booleans";
-  quizChoiceB.addEventListener("click", function() {
+  quizChoice1B.textContent = "booleans";
+  quizChoice1B.addEventListener("click", function() {
+    quizChoice1A.remove();
+    quizChoice1B.remove();
+    quizChoice1C.remove();
+    quizChoice1D.remove();
     runSecondQuestion();
     displayWrong();
   });
 
 
   // Answer choice C
-  quizChoiceC = document.createElement("p");
-  quizChoiceC.setAttribute("class", "choiceC");
-  body.appendChild(quizChoiceC);
+  var quizChoice1C = document.createElement("p");
+  body.appendChild(quizChoice1C);
 
-  quizChoiceC.textContent = "alerts";
-  quizChoiceC.addEventListener("click", function() {
+  quizChoice1C.textContent = "alerts";
+  quizChoice1C.addEventListener("click", function() {
+    quizChoice1A.remove();
+    quizChoice1B.remove();
+    quizChoice1C.remove();
+    quizChoice1D.remove();
     runSecondQuestion();
     displayCorrect();
   });
 
 
   // Answer choice D
-  quizChoiceD = document.createElement("p");
-  quizChoiceD.setAttribute("class", "choiceD");
-  body.appendChild(quizChoiceD);
+  var quizChoice1D = document.createElement("p");
+  body.appendChild(quizChoice1D);
 
-  quizChoiceD.textContent = "numbers";
-  quizChoiceD.addEventListener("click", function() {
+  quizChoice1D.textContent = "numbers";
+  quizChoice1D.addEventListener("click", function() {
+    quizChoice1A.remove();
+    quizChoice1B.remove();
+    quizChoice1C.remove();
+    quizChoice1D.remove();
     runSecondQuestion();
     displayWrong();
   });
@@ -109,42 +172,60 @@ function runSecondQuestion() {
 
 
   // Set text answer choices
-  quizChoiceA.textContent = "quotes";
-  quizChoiceA.addEventListener("click", function() {
+  var quizChoice2A = document.createElement("p");
+  body.appendChild(quizChoice2A);
+
+  quizChoice2A.textContent = "quotes";
+  quizChoice2A.addEventListener("click", function() {
+    quizChoice2A.remove();
+    quizChoice2B.remove();
+    quizChoice2C.remove();
+    quizChoice2D.remove();
     runThirdQuestion();
     displayWrong();
   });
 
 
-  quizChoiceB.textContent = "curly brackets";
-  quizChoiceB.addEventListener("click", function() {
+  var quizChoice2B = document.createElement("p");
+  body.appendChild(quizChoice2B);
+
+  quizChoice2B.textContent = "curly brackets";
+  quizChoice2B.addEventListener("click", function() {
+    quizChoice2A.remove();
+    quizChoice2B.remove();
+    quizChoice2C.remove();
+    quizChoice2D.remove();
     runThirdQuestion();
     displayWrong();
   });
 
 
-  quizChoiceC.textContent = "parentheses";
-  quizChoiceC.addEventListener("click", function() {
+  var quizChoice2C = document.createElement("p");
+  body.appendChild(quizChoice2C);
+
+  quizChoice2C.textContent = "parentheses";
+  quizChoice2C.addEventListener("click", function() {
+    quizChoice2A.remove();
+    quizChoice2B.remove();
+    quizChoice2C.remove();
+    quizChoice2D.remove();
     runThirdQuestion();
-    displayWrong();
+    displayCorrect();
   });
 
 
-  quizChoiceD.textContent = "square brackets";
-  quizChoiceD.addEventListener("click", function() {
-   runThirdQuestion();
-   displayCorrect();
+  var quizChoice2D = document.createElement("p");
+  body.appendChild(quizChoice2D);
+
+  quizChoice2D.textContent = "square brackets";
+  quizChoice2D.addEventListener("click", function() {
+    quizChoice2A.remove();
+    quizChoice2B.remove();
+    quizChoice2C.remove();
+    quizChoice2D.remove();
+    runThirdQuestion();
+   displayWrong();
   });
-
-  // debugger;
-  // Create divs for result from first question
-
-  lineBreak = document.createElement("hr");
-  body.appendChild(lineBreak);
-
-  choiceResult = document.createElement("div");
-  choiceResult.setAttribute("class", "result");
-  body.appendChild(choiceResult);
 
 };
 
@@ -155,34 +236,61 @@ function runSecondQuestion() {
 
 function runThirdQuestion() {
 
-  // debugger;
-
   quizQuestion.textContent = "Arrays in Javascript can be used to store _________";
 
   // Set text answer choices
-  quizChoiceA.textContent = "numbers and strings";
-  quizChoiceA.addEventListener("click", function() {
+
+  var quizChoice3A = document.createElement("p");
+  body.appendChild(quizChoice3A);
+
+  quizChoice3A.textContent = "numbers and strings";
+  quizChoice3A.addEventListener("click", function() {
+    quizChoice3A.remove();
+    quizChoice3B.remove();
+    quizChoice3C.remove();
+    quizChoice3D.remove();
     runFourthQuestion();
     displayWrong();
   });
 
 
-  quizChoiceB.textContent = "other arrays";
-  quizChoiceB.addEventListener("click", function() {
+  var quizChoice3B = document.createElement("p");
+  body.appendChild(quizChoice3B);
+
+  quizChoice3B.textContent = "other arrays";
+  quizChoice3B.addEventListener("click", function() {
+    quizChoice3A.remove();
+    quizChoice3B.remove();
+    quizChoice3C.remove();
+    quizChoice3D.remove();
     runFourthQuestion();
     displayWrong();
   });
 
 
-  quizChoiceC.textContent = "booleans";
-  quizChoiceC.addEventListener("click", function() {
+  var quizChoice3C = document.createElement("p");
+  body.appendChild(quizChoice3C);
+
+  quizChoice3C.textContent = "booleans";
+  quizChoice3C.addEventListener("click", function() {
+    quizChoice3A.remove();
+    quizChoice3B.remove();
+    quizChoice3C.remove();
+    quizChoice3D.remove();
     runFourthQuestion();
     displayWrong();
   });
 
 
-  quizChoiceD.textContent = "all of the above";
-  quizChoiceD.addEventListener("click", function() {
+  var quizChoice3D = document.createElement("p");
+  body.appendChild(quizChoice3D);
+
+  quizChoice3D.textContent = "all of the above";
+  quizChoice3D.addEventListener("click", function() {
+    quizChoice3A.remove();
+    quizChoice3B.remove();
+    quizChoice3C.remove();
+    quizChoice3D.remove();
    runFourthQuestion();
    displayCorrect();
   });
@@ -193,36 +301,64 @@ function runThirdQuestion() {
 
 function runFourthQuestion() {
 
-  quizQuestion.textContent = "String values must be enclosed within _________ when being assigned to variables";
+  quizQuestion.textContent = "String values must be enclosed within _________ when being assigned to variables.";
 
   // Set text answer choices
-  quizChoiceA.textContent = "commas";
-  quizChoiceA.addEventListener("click", function() {
-    // runFourthQuestion();
+
+  var quizChoice4A = document.createElement("p");
+  body.appendChild(quizChoice4A);
+
+  quizChoice4A.textContent = "commas";
+  quizChoice4A.addEventListener("click", function() {
+    quizChoice4A.remove();
+    quizChoice4B.remove();
+    quizChoice4C.remove();
+    quizChoice4D.remove();
+    runFifthQuestion();
     displayWrong();
   });
 
 
-  quizChoiceB.textContent = "curly brackets";
-  quizChoiceB.addEventListener("click", function() {
-    // runFourthQuestion();
+  var quizChoice4B = document.createElement("p");
+  body.appendChild(quizChoice4B);
+
+  quizChoice4B.textContent = "curly brackets";
+  quizChoice4B.addEventListener("click", function() {
+    quizChoice4A.remove();
+    quizChoice4B.remove();
+    quizChoice4C.remove();
+    quizChoice4D.remove();
+    runFifthQuestion();
     displayWrong();
   });
 
 
-  quizChoiceC.textContent = "quotes";
-  quizChoiceC.addEventListener("click", function() {
-    // runFourthQuestion();
+  var quizChoice4C = document.createElement("p");
+  body.appendChild(quizChoice4C);
+
+  quizChoice4C.textContent = "quotes";
+  quizChoice4C.addEventListener("click", function() {
+    quizChoice4A.remove();
+    quizChoice4B.remove();
+    quizChoice4C.remove();
+    quizChoice4D.remove();
+    runFifthQuestion();
     displayCorrect();
   });
 
 
-  quizChoiceD.textContent = "parentheses";
-  quizChoiceD.addEventListener("click", function() {
-  //  runFourthQuestion();
-   displayCorrect();
-  });
+  var quizChoice4D = document.createElement("p");
+  body.appendChild(quizChoice4D);
 
+  quizChoice4D.textContent = "parentheses";
+  quizChoice4D.addEventListener("click", function() {
+    quizChoice4A.remove();
+    quizChoice4B.remove();
+    quizChoice4C.remove();
+    quizChoice4D.remove();
+    runFifthQuestion();
+   displayWrong();
+  });
 
 
 };
@@ -230,34 +366,100 @@ function runFourthQuestion() {
 
 
 
+function runFifthQuestion() {
+debugger;
+  quizQuestion.textContent = "A very useful tool used during development and debugging for printing content to the debugger is:";
+
+  
+  // Set text answer choices
+  var quizChoice5A = document.createElement("p");
+  body.appendChild(quizChoice5A);
+
+  quizChoice5A.textContent = "Javascript";
+  quizChoice5A.addEventListener("click", function() {
+    quizChoice5A.remove();
+    quizChoice5B.remove();
+    quizChoice5C.remove();
+    quizChoice5D.remove();
+    enterInitials();
+    displayWrong();
+  });
+
+
+  var quizChoice5B = document.createElement("p");
+  body.appendChild(quizChoice5B);
+
+  quizChoice5B.textContent = "terminal/bash";
+  quizChoice5B.addEventListener("click", function() {
+    quizChoice5A.remove();
+    quizChoice5B.remove();
+    quizChoice5C.remove();
+    quizChoice5D.remove();
+    enterInitials();
+    displayWrong();
+    
+  });
+
+
+  var quizChoice5C = document.createElement("p");
+  body.appendChild(quizChoice5C);
+
+  quizChoice5C.textContent = "for loops";
+  quizChoice5C.addEventListener("click", function() {
+    quizChoice5A.remove();
+    quizChoice5B.remove();
+    quizChoice5C.remove();
+    quizChoice5D.remove();
+    enterInitials();
+    displayWrong();
+
+  });
+
+
+  var quizChoice5D = document.createElement("p");
+  body.appendChild(quizChoice5D);
+
+  quizChoice5D.textContent = "console.log";
+  quizChoice5D.addEventListener("click", function() {
+    quizChoice5A.remove();
+    quizChoice5B.remove();
+    quizChoice5C.remove();
+    quizChoice5D.remove();
+    enterInitials();
+    displayCorrect();
+
+  });
+
+};
 
 
 
-// FUNCTIONS FOR DISPLAYING CORRECT OR WRONG
+
+function enterInitials() {
 
 
-function displayCorrect() {
-  choiceResult.textContent = "Correct!";
+  quizQuestion.textContent = "All done!";
 
-  setTimeout(function() {
+  var finalScore = document.createElement("p");
+  finalScore.textContent = "Your final score is ______";
+  body.appendChild(finalScore);
 
-    choiceResult.setAttribute("style", "display: none;");
-    lineBreak.setAttribute("style", "display: none;");
 
-  },
-  1000);
+  var initialText = document.createElement("label");
+  initialText.setAttribute("for", "initials");
+  // initialText.textContent("Enter initials:");
+  body.appendChild(initialText);
 
-}
 
-function displayWrong() {
-  choiceResult.textContent = "Wrong!";
+  var inputInitials = document.createElement("input");
+  inputInitials.setAttribute("type", "text");
+  body.appendChild(inputInitials);
 
-  setTimeout(function() {
 
-    choiceResult.setAttribute("style", "display: none;");
-    lineBreak.setAttribute("style", "display: none;");
+  // <label for="lname">Last name:</label><br>
+  //   <input type="text" id="lname" name="lname" value="Doe"><br><br>
 
-  },
-  1000);
 
-}
+
+};
+
