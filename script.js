@@ -1,3 +1,31 @@
+var timeEl = document.querySelector(".time");
+
+var secondsLeft = 60;
+
+function setTime() {
+  var timerInterval = setInterval(function() {
+    
+    secondsLeft--;
+    timeEl.textContent = "Time: " + secondsLeft;
+
+    if(secondsLeft <= 9) {
+
+      timeEl.textContent = "Time: 0" + secondsLeft;
+
+    }
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      timeEl.textContent = "Time: " + secondsLeft;
+      console.log("time's up");
+    }
+
+  }, 1000);
+};
+
+
+
+
 var body = document.body;
 
 var score = 0;
@@ -24,6 +52,7 @@ var startQuiz = document.querySelector("button");
 startQuiz.addEventListener("click", function() {
   quizInstructions.remove();
   startQuiz.remove();
+  setTime();
   runFirstQuestion();
 });
 
@@ -89,6 +118,12 @@ function displayWrong() {
 
 
 
+
+function displayQuestion() {
+
+  console.log("New question");
+
+};
 
 
 
