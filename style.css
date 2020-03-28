@@ -17,6 +17,10 @@ button {
     font-size: 12px;
 }
 
+button:hover {
+    opacity: 0.5;
+}
+
 
 body {
     max-width: 680px;
@@ -40,6 +44,16 @@ p:hover {
 }
 
 
+input {
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 30px
+}
+
+
+
+/* TODO: Test styles for centering default text on landing only */
+
 /* .intro {
     padding-bottom: 20px;
     text-align: center;
@@ -61,6 +75,9 @@ p:hover {
 }
  */
 
+
+ /* END QUIZ */
+
 .result {
     font-size: 18px;
     font-style: italic;
@@ -72,8 +89,26 @@ p:hover {
     display: inline-block;
 }
 
+
+
+/* HIGH SCORES LIST */
+
+
+.no-scores {
+    font-style: italic;
+    color: #999999;
+    font-size: 24px;
+}
+
+
+
 .high-score {
-    list-style: none;
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 20px;
+    margin-left: 0;
+}
+
+.high-score:hover {
+    background-color: purple;
+    color: white;
 }

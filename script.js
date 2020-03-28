@@ -1,3 +1,7 @@
+// TODO: Time's up sequence runs when timer goes to 0 even on endQuiz();
+// TODO: Wire up remaining high scores functionality
+
+
 // SET THE TIMER
 var timeEl = document.querySelector(".time");
 
@@ -10,7 +14,7 @@ function setTime() {
     timeEl.textContent = "Time: " + secondsLeft;
     secondsLeft--;
 
-    
+
     // Format the secondsLeft when they are a single digit
     if (secondsLeft <= 9) {
 
@@ -518,7 +522,7 @@ var inputInitials;
 function endQuiz() {
 
   // If time ran out, display the following
-  
+
   if (secondsLeft === 0) {
 
     quizQuestion.textContent = "Sorry! Time's up!";
@@ -529,53 +533,56 @@ function endQuiz() {
     var quizInstructions = document.createElement("p");
     quizInstructions.innerHTML = "You ran out of time! <br> If you'd like to try again, restart the quiz with the button below.";
     restartQuiz.appendChild(quizInstructions);
-    
+
     var restartBtn = document.createElement("button");
     restartBtn.textContent = "Restart Quiz";
     restartQuiz.appendChild(restartBtn);
-  
 
-  // Else ask the user to enter their initials
+
+    // Else ask the user to enter their initials
 
   } else {
-    
+
     quizQuestion.textContent = "All done!";
-  
+
     var finalScore = document.createElement("div");
     finalScore.textContent = "Your final score is " + score;
     body.appendChild(finalScore);
     console.log("Final score is: " + score);
-  
-  
+
+
     var initialForm = document.createElement("form");
     body.appendChild(initialForm);
-  
+
     var initialText = document.createElement("label");
     initialText.setAttribute("class", "initials");
     initialText.textContent = "Enter initials: ";
     initialForm.appendChild(initialText);
-  
-  
+
+
     inputInitials = document.createElement("input");
     inputInitials.setAttribute("type", "text");
     initialForm.appendChild(inputInitials);
-  
-  
-    var initialsBtn = document.createElement("button");
-    initialsBtn.textContent = "Submit";
+
+
+    var initialsBtn = document.createElement("a");
+    initialsBtn.innerHTML = "<button>Submit</button>";
+    initialsBtn.setAttribute("href", "scores.html");
     initialForm.appendChild(initialsBtn);
-  
-  
-    initialsBtn.addEventListener("click", function(event) {
+
+
+    initialsBtn.addEventListener("click", function (event) {
+
+      // event.preventDefault();
 
       saveHighScore();
-      
+
       console.log("Score submitted");
-  
+
     });
 
   }
-     
+
 };
 
 
@@ -607,7 +614,7 @@ function saveHighScore() {
   console.log(highScores);
 
   // If next score is higher than the first, sort it first
-  highScores.sort( (first,next) => {
+  highScores.sort((first, next) => {
     return next.score - first.score;
   })
 
