@@ -591,12 +591,14 @@ console.log("These are " + highScores);
 
 var maxHighScores = 5;
 
+var playerEntry;
+
 function saveHighScore() {
 
   var playerEntry = {
+    name: inputInitials.value,
     score: score,
-    name: inputInitials.value
-  }
+  };
 
   // Add playerEntry onto highScores array
 
