@@ -567,8 +567,6 @@ function endQuiz() {
   
   
     initialsBtn.addEventListener("click", function(event) {
-      
-      event.preventDefault();
 
       saveHighScore();
       

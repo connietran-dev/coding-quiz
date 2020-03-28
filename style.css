@@ -71,3 +71,9 @@ p:hover {
 .initials {
     display: inline-block;
 }
+
+.high-score {
+    list-style: none;
+    font-size: 20px;
+    margin-bottom: 20px;
+}

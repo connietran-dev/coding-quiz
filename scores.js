@@ -5,13 +5,9 @@ var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 console.log(highScores);
 
 
-// highScores.forEach(element => {
-//     console.log(highScores[0]);    
-// });
-
-
 highScores.forEach(element => {
     var scoreItem = document.createElement("li");
+    scoreItem.setAttribute("class", "high-score");
     highScoresList.appendChild(scoreItem);
-    scoreItem.innerText = "Player: " + playerEntry.name + " Score: " + playerEntry.score;
+    scoreItem.innerHTML = "Player: <strong>" + element.name + "</strong> |   Score: <strong>" + element.score + "</strong>";
 });
