@@ -1,15 +1,16 @@
 // SET THE TIMER
 var timeEl = document.querySelector(".time");
 
-var secondsLeft = 5;
+var secondsLeft = 60;
 
 
 function setTime() {
   var timerInterval = setInterval(function () {
 
-    secondsLeft--;
     timeEl.textContent = "Time: " + secondsLeft;
+    secondsLeft--;
 
+    
     // Format the secondsLeft when they are a single digit
     if (secondsLeft <= 9) {
 
@@ -22,6 +23,8 @@ function setTime() {
       clearInterval(timerInterval);
       timeEl.textContent = "Time: " + secondsLeft;
       console.log("time's up");
+
+      // Remove answers from screen
 
       var allAnswers = document.querySelectorAll("p");
 
@@ -113,6 +116,8 @@ function displayCorrect() {
 
 function displayWrong() {
 
+  secondsLeft -= 10;
+
   console.log("Current score: " + score);
 
   lineBreak = document.createElement("hr");
@@ -135,14 +140,6 @@ function displayWrong() {
 
 };
 
-
-
-
-function displayQuestion() {
-
-  console.log("New question");
-
-};
 
 
 
@@ -170,6 +167,7 @@ function runFirstQuestion() {
     quizChoiceC.remove();
     quizChoiceD.remove();
     score -= 10;
+
     runSecondQuestion();
     displayWrong();
   });
@@ -512,6 +510,9 @@ function runFifthQuestion() {
 
 
 
+var inputInitials;
+
+
 // FUNCTION FOR DISPLAYING THE END OF THE QUIZ
 
 function endQuiz() {
@@ -555,7 +556,7 @@ function endQuiz() {
     initialForm.appendChild(initialText);
   
   
-    var inputInitials = document.createElement("input");
+    inputInitials = document.createElement("input");
     inputInitials.setAttribute("type", "text");
     initialForm.appendChild(inputInitials);
   
@@ -568,10 +569,8 @@ function endQuiz() {
     initialsBtn.addEventListener("click", function(event) {
       
       event.preventDefault();
-  
-      localStorage.setItem("recentScore", score);
-    
-      console.log(event);
+
+      saveHighScore();
       
       console.log("Score submitted");
   
@@ -579,5 +578,44 @@ function endQuiz() {
 
   }
      
+};
+
+
+
+// FUNCTION TO SAVE HIGH SCORE
+
+// Create an empty array if it doesn't already exist
+// Otherwise, set...
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+console.log("These are " + highScores);
+
+var maxHighScores = 5;
+
+function saveHighScore() {
+
+  var playerEntry = {
+    score: score,
+    name: inputInitials.value
+  }
+
+  // Add playerEntry onto highScores array
+
+  highScores.push(playerEntry);
+
+  console.log(inputInitials.value);
+  console.log(playerEntry);
+  console.log(highScores);
+
+  // If next score is higher than the first, sort it first
+  highScores.sort( (first,next) => {
+    return next.score - first.score;
+  })
+
+  // Only store the top 3 scores
+  highScores.splice(3);
+
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+
+
 };
 
