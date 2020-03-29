@@ -10,7 +10,7 @@ When the quiz is started, a timer will start. As you select your answer for each
 
 Each question and set of answer choices are generated dynamically using native Javascript methods such as `createElement`. And when the game is over, the player's score is saved in local storage and displayed on a High Scores leaderboard along with the other high scores stored in local storage.
 
-The live page can be viewed here: https://connietran-dev.github.io/codi…
+The live page can be viewed here: https://connietran-dev.github.io/coding-quiz/
 
 The following animation demonstrates the application functionality. These comps were followed in large degree as an exercise in following client requests and ensuring the requested functionality could be developed successfully.
 
