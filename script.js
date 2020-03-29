@@ -4,7 +4,7 @@ var isQuizComplete = false;
 // SET THE TIMER
 var timeEl = document.querySelector(".time");
 
-var secondsLeft = 20;
+var secondsLeft = 60;
 
 var timerInterval;
 
