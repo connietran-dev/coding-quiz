@@ -72,7 +72,7 @@ var body = document.body;
 
 var score = 0;
 
-// Create elements for quiz
+// Create elements for quiz questions
 var quizQuestion = document.createElement("h1");
 var quizInstructions = document.createElement("p");
 var startQuiz = document.createElement("button");
@@ -108,17 +108,13 @@ startQuiz.addEventListener("click", function () {
 
 
 
-// FUNCTIONS FOR DISPLAYING CORRECT OR WRONG
-
-// TODO: Modify code for how results are injected and displayed.
+// FUNCTIONS FOR DISPLAYING CORRECT OR WRONG RESULTS
 
 function displayCorrect() {
 
-  // Add to score
   console.log("Current score: " + score);
 
-  // Create divs for result from first question
-
+  // Create divs for result from last question after next question is run (see runXQuestion() functions)
   lineBreak = document.createElement("hr");
   body.appendChild(lineBreak);
 
@@ -138,6 +134,7 @@ function displayCorrect() {
     600);
 
 };
+
 
 function displayWrong() {
 
@@ -168,6 +165,8 @@ function displayWrong() {
 
 
 
+// Functions for the end of the quiz start around line 540
+
 
 // DISPLAY FIRST QUESTION
 
@@ -185,7 +184,7 @@ function runFirstQuestion() {
   var quizChoiceA = document.createElement("p");
   body.appendChild(quizChoiceA);
 
-  quizChoiceA.textContent = "strings";
+  quizChoiceA.textContent = "1. strings";
   quizChoiceA.addEventListener("click", function () {
     quizChoiceA.remove();
     quizChoiceB.remove();
@@ -202,7 +201,7 @@ function runFirstQuestion() {
   var quizChoiceB = document.createElement("p");
   body.appendChild(quizChoiceB);
 
-  quizChoiceB.textContent = "booleans";
+  quizChoiceB.textContent = "2. booleans";
   quizChoiceB.addEventListener("click", function () {
     quizChoiceA.remove();
     quizChoiceB.remove();
@@ -218,7 +217,7 @@ function runFirstQuestion() {
   var quizChoiceC = document.createElement("p");
   body.appendChild(quizChoiceC);
 
-  quizChoiceC.textContent = "alerts";
+  quizChoiceC.textContent = "3. alerts";
   quizChoiceC.addEventListener("click", function () {
     quizChoiceA.remove();
     quizChoiceB.remove();
@@ -234,7 +233,7 @@ function runFirstQuestion() {
   var quizChoiceD = document.createElement("p");
   body.appendChild(quizChoiceD);
 
-  quizChoiceD.textContent = "numbers";
+  quizChoiceD.textContent = "4. numbers";
   quizChoiceD.addEventListener("click", function () {
     quizChoiceA.remove();
     quizChoiceB.remove();
@@ -263,7 +262,7 @@ function runSecondQuestion() {
   var quizChoice2A = document.createElement("p");
   body.appendChild(quizChoice2A);
 
-  quizChoice2A.textContent = "quotes";
+  quizChoice2A.textContent = "1. quotes";
   quizChoice2A.addEventListener("click", function () {
     quizChoice2A.remove();
     quizChoice2B.remove();
@@ -278,7 +277,7 @@ function runSecondQuestion() {
   var quizChoice2B = document.createElement("p");
   body.appendChild(quizChoice2B);
 
-  quizChoice2B.textContent = "curly brackets";
+  quizChoice2B.textContent = "2. curly brackets";
   quizChoice2B.addEventListener("click", function () {
     quizChoice2A.remove();
     quizChoice2B.remove();
@@ -293,7 +292,7 @@ function runSecondQuestion() {
   var quizChoice2C = document.createElement("p");
   body.appendChild(quizChoice2C);
 
-  quizChoice2C.textContent = "parentheses";
+  quizChoice2C.textContent = "3. parentheses";
   quizChoice2C.addEventListener("click", function () {
     quizChoice2A.remove();
     quizChoice2B.remove();
@@ -308,7 +307,7 @@ function runSecondQuestion() {
   var quizChoice2D = document.createElement("p");
   body.appendChild(quizChoice2D);
 
-  quizChoice2D.textContent = "square brackets";
+  quizChoice2D.textContent = "4. square brackets";
   quizChoice2D.addEventListener("click", function () {
     quizChoice2A.remove();
     quizChoice2B.remove();
@@ -335,7 +334,7 @@ function runThirdQuestion() {
   var quizChoice3A = document.createElement("p");
   body.appendChild(quizChoice3A);
 
-  quizChoice3A.textContent = "numbers and strings";
+  quizChoice3A.textContent = "1. numbers and strings";
   quizChoice3A.addEventListener("click", function () {
     quizChoice3A.remove();
     quizChoice3B.remove();
@@ -350,7 +349,7 @@ function runThirdQuestion() {
   var quizChoice3B = document.createElement("p");
   body.appendChild(quizChoice3B);
 
-  quizChoice3B.textContent = "other arrays";
+  quizChoice3B.textContent = "2. other arrays";
   quizChoice3B.addEventListener("click", function () {
     quizChoice3A.remove();
     quizChoice3B.remove();
@@ -365,7 +364,7 @@ function runThirdQuestion() {
   var quizChoice3C = document.createElement("p");
   body.appendChild(quizChoice3C);
 
-  quizChoice3C.textContent = "booleans";
+  quizChoice3C.textContent = "3. booleans";
   quizChoice3C.addEventListener("click", function () {
     quizChoice3A.remove();
     quizChoice3B.remove();
@@ -380,7 +379,7 @@ function runThirdQuestion() {
   var quizChoice3D = document.createElement("p");
   body.appendChild(quizChoice3D);
 
-  quizChoice3D.textContent = "all of the above";
+  quizChoice3D.textContent = "4. all of the above";
   quizChoice3D.addEventListener("click", function () {
     quizChoice3A.remove();
     quizChoice3B.remove();
@@ -404,7 +403,7 @@ function runFourthQuestion() {
   var quizChoice4A = document.createElement("p");
   body.appendChild(quizChoice4A);
 
-  quizChoice4A.textContent = "commas";
+  quizChoice4A.textContent = "1. commas";
   quizChoice4A.addEventListener("click", function () {
     quizChoice4A.remove();
     quizChoice4B.remove();
@@ -419,7 +418,7 @@ function runFourthQuestion() {
   var quizChoice4B = document.createElement("p");
   body.appendChild(quizChoice4B);
 
-  quizChoice4B.textContent = "curly brackets";
+  quizChoice4B.textContent = "2. curly brackets";
   quizChoice4B.addEventListener("click", function () {
     quizChoice4A.remove();
     quizChoice4B.remove();
@@ -434,7 +433,7 @@ function runFourthQuestion() {
   var quizChoice4C = document.createElement("p");
   body.appendChild(quizChoice4C);
 
-  quizChoice4C.textContent = "quotes";
+  quizChoice4C.textContent = "3. quotes";
   quizChoice4C.addEventListener("click", function () {
     quizChoice4A.remove();
     quizChoice4B.remove();
@@ -449,7 +448,7 @@ function runFourthQuestion() {
   var quizChoice4D = document.createElement("p");
   body.appendChild(quizChoice4D);
 
-  quizChoice4D.textContent = "parentheses";
+  quizChoice4D.textContent = "4. parentheses";
   quizChoice4D.addEventListener("click", function () {
     quizChoice4A.remove();
     quizChoice4B.remove();
@@ -475,7 +474,7 @@ function runFifthQuestion() {
   var quizChoice5A = document.createElement("p");
   body.appendChild(quizChoice5A);
 
-  quizChoice5A.textContent = "Javascript";
+  quizChoice5A.textContent = "1. Javascript";
   quizChoice5A.addEventListener("click", function () {
     quizChoice5A.remove();
     quizChoice5B.remove();
@@ -490,7 +489,7 @@ function runFifthQuestion() {
   var quizChoice5B = document.createElement("p");
   body.appendChild(quizChoice5B);
 
-  quizChoice5B.textContent = "terminal/bash";
+  quizChoice5B.textContent = "2. terminal/bash";
   quizChoice5B.addEventListener("click", function () {
     quizChoice5A.remove();
     quizChoice5B.remove();
@@ -505,7 +504,7 @@ function runFifthQuestion() {
   var quizChoice5C = document.createElement("p");
   body.appendChild(quizChoice5C);
 
-  quizChoice5C.textContent = "for loops";
+  quizChoice5C.textContent = "3. for loops";
   quizChoice5C.addEventListener("click", function () {
     quizChoice5A.remove();
     quizChoice5B.remove();
@@ -520,7 +519,7 @@ function runFifthQuestion() {
   var quizChoice5D = document.createElement("p");
   body.appendChild(quizChoice5D);
 
-  quizChoice5D.textContent = "console.log";
+  quizChoice5D.textContent = "4. console.log";
   quizChoice5D.addEventListener("click", function () {
     quizChoice5A.remove();
     quizChoice5B.remove();
@@ -535,15 +534,18 @@ function runFifthQuestion() {
 
 
 
-var inputInitials;
+
 
 
 
 
 // FUNCTION FOR DISPLAYING THE END OF THE QUIZ
 
+var inputInitials;
+
 function endQuiz() {
 
+    // When user succesfully completes last question, set to true
     isQuizComplete = true;
 
     timeEl.textContent = "Time: 0";
@@ -580,8 +582,6 @@ function endQuiz() {
 
     initialsBtn.addEventListener("click", function (event) {
 
-      // event.preventDefault();
-
       saveHighScore();
 
       console.log("Score submitted");
@@ -594,24 +594,21 @@ function endQuiz() {
 
 // FUNCTION TO SAVE HIGH SCORE
 
-// Create an empty array if it doesn't already exist
-// Otherwise, set...
 var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 console.log("Current high scores: " + highScores);
 
-var maxHighScores = 5;
-
 var playerEntry;
+
 
 function saveHighScore() {
 
+  // Create playerEntry object
   var playerEntry = {
     name: inputInitials.value,
     score: score,
   };
 
   // Add playerEntry onto highScores array
-
   highScores.push(playerEntry);
 
   console.log(inputInitials.value);
@@ -626,6 +623,7 @@ function saveHighScore() {
   // Only store the top 3 scores
   highScores.splice(3);
 
+  // Store highScores array in local storage
   localStorage.setItem("highScores", JSON.stringify(highScores));
 
 
