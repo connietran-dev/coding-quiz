@@ -1,4 +1,4 @@
-nav {
+header {
 display: flex;
 justify-content: space-between;
 vertical-align: center;
@@ -106,9 +106,4 @@ input {
     font-size: 16px;
     margin-bottom: 20px;
     margin-left: 0;
-}
-
-.high-score:hover {
-    background-color: purple;
-    color: white;
 }

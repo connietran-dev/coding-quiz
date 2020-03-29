@@ -18,7 +18,7 @@ if (highScores.length === 0) {
         var scoreItem = document.createElement("li");
         scoreItem.setAttribute("class", "high-score");
         highScoresList.appendChild(scoreItem);
-        scoreItem.innerHTML = "Player: <strong>" + element.name + "</strong> |   Score: <strong>" + element.score + "</strong>";
+        scoreItem.innerHTML = "Player: <strong>" + element.name + "</strong> - Score: <strong>" + element.score + "</strong>";
     });
 }
 

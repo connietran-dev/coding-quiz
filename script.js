@@ -1,18 +1,26 @@
-// TODO: Time's up sequence runs when timer goes to 0 even on endQuiz();
-// TODO: Wire up remaining high scores functionality
-
+// So long as quiz has not reached the end, keep isQuizComplete false
+var isQuizComplete = false;
 
 // SET THE TIMER
 var timeEl = document.querySelector(".time");
 
-var secondsLeft = 60;
+var secondsLeft = 20;
+
+var timerInterval;
 
 
 function setTime() {
+
   var timerInterval = setInterval(function () {
 
+    // If the quiz has not yet ended and there is still time on the clock, continue to show the time and subtract 1 each 1 second 
+    if (secondsLeft >= 0 && isQuizComplete === false) {
+
     timeEl.textContent = "Time: " + secondsLeft;
+
     secondsLeft--;
+
+    };
 
 
     // Format the secondsLeft when they are a single digit
@@ -22,25 +30,38 @@ function setTime() {
 
     }
 
-    if (secondsLeft === 0) {
+    // If player ran out of time before quiz ended (due to time or wrong answers), tell them time's up
+    if (secondsLeft <= 0 && isQuizComplete === false) {
+
+      // Format the secondsLeft are negative because user clicked wrong answer, simply display 0
+      timeEl.textContent = "Time: 0";
 
       clearInterval(timerInterval);
-      timeEl.textContent = "Time: " + secondsLeft;
+
+      quizQuestion.textContent = "Sorry! Time's up!";
+
       console.log("time's up");
 
       // Remove answers from screen
-
       var allAnswers = document.querySelectorAll("p");
-
       for (let i = 0; i < allAnswers.length; i++) {
         const element = allAnswers[i];
         element.remove();
-      }
+      };
 
-      endQuiz();
+      var restartQuiz = document.createElement("form");
+      body.appendChild(restartQuiz);
+  
+      var quizInstructions = document.createElement("p");
+      quizInstructions.innerHTML = "You ran out of time! <br> If you'd like to try again, restart the quiz with the button below.";
+      restartQuiz.appendChild(quizInstructions);
+      
+      // Refresh to take user to beginning
+      var restartBtn = document.createElement("button");
+      restartBtn.textContent = "Restart Quiz";
+      restartQuiz.appendChild(restartBtn);
 
     }
-
   }, 1000);
 };
 
@@ -517,31 +538,17 @@ function runFifthQuestion() {
 var inputInitials;
 
 
+
+
 // FUNCTION FOR DISPLAYING THE END OF THE QUIZ
 
 function endQuiz() {
 
-  // If time ran out, display the following
+    isQuizComplete = true;
 
-  if (secondsLeft === 0) {
+    timeEl.textContent = "Time: 0";
 
-    quizQuestion.textContent = "Sorry! Time's up!";
-
-    var restartQuiz = document.createElement("form");
-    body.appendChild(restartQuiz);
-
-    var quizInstructions = document.createElement("p");
-    quizInstructions.innerHTML = "You ran out of time! <br> If you'd like to try again, restart the quiz with the button below.";
-    restartQuiz.appendChild(quizInstructions);
-
-    var restartBtn = document.createElement("button");
-    restartBtn.textContent = "Restart Quiz";
-    restartQuiz.appendChild(restartBtn);
-
-
-    // Else ask the user to enter their initials
-
-  } else {
+    clearInterval(timerInterval);
 
     quizQuestion.textContent = "All done!";
 
@@ -581,8 +588,6 @@ function endQuiz() {
 
     });
 
-  }
-
 };
 
 
@@ -592,7 +597,7 @@ function endQuiz() {
 // Create an empty array if it doesn't already exist
 // Otherwise, set...
 var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-console.log("These are " + highScores);
+console.log("Current high scores: " + highScores);
 
 var maxHighScores = 5;
 
